@@ -1,0 +1,52 @@
+components:
+    examples: {}
+    headers: {}
+    parameters: {}
+    requestBodies: {}
+    responses: {}
+    schemas:
+        Test:
+            properties:
+                id:
+                    type: string
+            required:
+                - id
+            type: object
+            additionalProperties: false
+    securitySchemes:
+        api_key:
+            type: apiKey
+            name: x-user
+            in: header
+info:
+    title: '{ServiceName}'
+    version: 1.0.0
+    description: '{ServiceName} list the api endpoints for the {ServiceName} Services'
+    license:
+        name: ISC
+    contact:
+        name: Owner
+        email: jashif.aboobacker@cagemini.com
+        url: 'https://github.com/coworker-app/catalog-service'
+openapi: 3.0.0
+paths:
+    /api/test:
+        get:
+            operationId: Get
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Test'
+                            examples:
+                                'Example 1':
+                                    value: {id: '1'}
+            security:
+                -
+                    api_key: []
+            parameters: []
+servers:
+    -
+        url: /

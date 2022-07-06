@@ -1,0 +1,41 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "spec": {
+    "name": "{ServiceName}",
+    "description": "{ServiceName} list the api endpoints for the {ServiceName} Services",
+    "contact": {
+      "name": "Owner",
+      "email": "jashif.aboobacker@cagemini.com",
+      "url": "https://github.com/coworker-app/catalog-service"
+    },
+    "middleware": "express",
+    "securityDefinitions": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "x-user",
+        "in": "header"
+      }
+    },
+    "outputDirectory": "src/public",
+    "specVersion": 3,
+    "yaml": true
+  },
+  "controllerPathGlobs": ["src/controllers/*Controller.ts"],
+  "ignore": ["**/node_modules/**"],
+  "routes": {
+    "noWriteIfUnchanged": true,
+    "authenticationModule": "src/middlewares/authentication.ts",
+    "routesDir": "src/routes",
+    "routesFileName": "apiRoutes.ts"
+  },
+  "declarations": {
+    "declarationsDir": "src/interfaces/Test.ts"
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "CustomerResponse": "src/interfaces/Test.ts"
+    }
+  }
+}
